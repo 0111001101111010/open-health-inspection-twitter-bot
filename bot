@@ -1,3 +1,4 @@
+#! /app/bin/node
 /*
    Copyright 2014 Code for Hampton Roads contributors.
 
@@ -33,7 +34,7 @@ var url = api + '?lat=' + selectedCity.primary_latitude +
 
 var T = new Twit(config);
 
-function TweetEvery(){
+function Tweet(){
   request.get({
     url: url,
     json: true,
@@ -66,5 +67,5 @@ function TweetEvery(){
     }
   });
 }
-//Tweet Every 30 minutes  = 1000ms * 30mins * 1000seconds * 60000
-setInterval(TweetEvery, 1800000);
+Tweet();
+process.exit();
